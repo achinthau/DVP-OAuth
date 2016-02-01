@@ -32,7 +32,7 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new GitHubStrategy({
         clientID: config.Authentication.clientId,
         clientSecret: config.Authentication.clientSecret,
-        callbackURL: "http://45.55.142.207:3737/auth/github/callback"
+        callbackURL: "http://104.131.67.21:3737/auth/github/callback"
     },
     function(accessToken, refreshToken, profile, done) {
         // asynchronous verification, for effect...
@@ -234,15 +234,48 @@ module.exports = function(app) {
                     payload.exp = moment().add(7, 'days').unix()
                     payload.tenant = obj.id;
 
+                    payload.scope = [];
 
                     if(req.body.resource instanceof Array){
 
-                        payload.scope = req.body.resource;
+
+
+                        for (i = 0; i < req.body.resource.length; i++) {
+
+                            var itm = req.body.resource[i];
+                            var obj = {};
+
+                            obj.resource = itm;
+                            var val = req.body[itm];
+
+                            if(val)
+                            {
+                                obj.actions =val;
+                            }
+
+
+
+
+                            payload.scope.push(obj);
+
+                        }
+
+
+                        //payload.scope = req.body.resource;
 
                     }else{
 
-                        payload.scope= [];
-                        payload.scope.push(req.body.resource);
+
+                        var obj = {};
+                        obj.resource = req.body.resource;
+                        var val = req.body[req.body.resource];
+
+                        if(val)
+                        {
+                            obj.actions =val;
+                        }
+
+                        payload.scope.push(obj);
                     }
 
 

@@ -2,10 +2,34 @@
 
 <form method="post" action="/generate">
     <input type="checkbox" name="resource" value="public" checked> Public<br>
+    <input type="checkbox" name="public" value="read" checked> Read
+    <input type="checkbox" name="public" value="write" checked> Write
+    <input type="checkbox" name="public" value="delete" checked> Delete<br>
     <input type="checkbox" name="resource" value="trunk"> Trunk<br>
+
+    <input type="checkbox" name="trunk" value="read"> Read
+    <input type="checkbox" name="trunk" value="write"> Write
+    <input type="checkbox" name="trunk" value="delete"> Delete<br>
+
     <input type="checkbox" name="resource" value="number"> Number<br>
+
+    <input type="checkbox" name="number" value="read"> Read
+    <input type="checkbox" name="number" value="write"> Write
+    <input type="checkbox" name="number" value="delete"> Delete<br>
+
+
     <input type="checkbox" name="resource" value="user"> User<br>
+
+    <input type="checkbox" name="user" value="read"> Read
+    <input type="checkbox" name="user" value="write"> Write
+    <input type="checkbox" name="user" value="delete"> Delete<br>
+
     <input type="checkbox" name="resource" value="cluster"> Cluster<br>
+
+    <input type="checkbox" name="cluster" value="read"> Read
+    <input type="checkbox" name="cluster" value="write"> Write
+    <input type="checkbox" name="cluster" value="delete"> Delete<br>
+
     <input type="submit" value="Submit">
 </form>
 
