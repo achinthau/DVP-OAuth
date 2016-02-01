@@ -1,0 +1,20 @@
+
+
+<form method="post" action="/generate">
+    <input type="checkbox" name="resource" value="public" checked> Public<br>
+    <input type="checkbox" name="resource" value="trunk"> Trunk<br>
+    <input type="checkbox" name="resource" value="number"> Number<br>
+    <input type="checkbox" name="resource" value="user"> User<br>
+    <input type="checkbox" name="resource" value="cluster"> Cluster<br>
+    <input type="submit" value="Submit">
+</form>
+
+<% if (token) { %>
+
+<a>id: <%= tokenid %></a><br>
+<a>token: </a><br>
+<textarea><%= token %></textarea>
+<% } %>
+
+
+<br><a href="/">Index</a>
