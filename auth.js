@@ -7,8 +7,8 @@ var moment = require('moment');
 var uuid = require('node-uuid');
 var redis = require('redis');
 
-var redisip = config.Redis.ip;
-var redisport = config.Redis.port;
+var redisip = config.Security.ip;
+var redisport = config.Security.port;
 
 var redisClient = redis.createClient(redisport, redisip);
 
@@ -33,7 +33,7 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new GitHubStrategy({
         clientID: config.Authentication.clientId,
         clientSecret: config.Authentication.clientSecret,
-        callbackURL: "http://104.131.67.21:3737/auth/github/callback"
+        callbackURL: "http://127.0.0.1:3737/auth/github/callback"
     },
     function(accessToken, refreshToken, profile, done) {
         // asynchronous verification, for effect...
@@ -233,7 +233,8 @@ module.exports = function(app) {
                     payload.jti = jti;
                     payload.sub = config.Authentication.apiKey;
                     payload.exp = moment().add(7, 'days').unix()
-                    payload.tenant = obj.id;
+                    payload.tenant = 1;
+                    payload.company = obj.id;
 
                     payload.scope = [];
 

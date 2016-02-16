@@ -4,8 +4,8 @@ module.exports = {
     "User":"duo",
     "Password":"DuoS123",
     "Port":5432,
-    "Host":"104.131.105.222",
-    "Database":"duo"
+    "Host":"127.0.0.1",
+    "Database":"dvpdb"
   },
 
   "Authentication":
@@ -21,6 +21,12 @@ module.exports = {
     "port": 6379
 
   },
+  "Security":
+  {
+    "ip" : "45.55.142.207",
+    "port": 6379
+  },
+
 
   "Host":
   {
